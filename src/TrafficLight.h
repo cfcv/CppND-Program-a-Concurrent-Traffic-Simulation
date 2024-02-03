@@ -25,7 +25,7 @@ public:
 
 private:
     std::deque<T> _queue;
-    std::condition_variable _cnd_var;
+    std::condition_variable _condition;
     std::mutex _mutex_for_cond;
 };
 
@@ -59,6 +59,7 @@ private:
     std::condition_variable _condition;
     std::mutex _mutex;
     TrafficLightPhase _currentPhase;
+    MessageQueue<TrafficLightPhase> _message_queue;
 };
 
 #endif
